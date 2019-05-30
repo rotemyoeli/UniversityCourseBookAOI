@@ -113,5 +113,31 @@ the power consumption, we can recover this information by measuring the power co
 
 % TO BE CONTINUED: 
 % https://www.temi.com/editor/t/iT2GGbpWLF-dheqB2Wljm3PU5R9Yqyu1ynigOlYve96G2opOgaLbI27Ilw944MYylUBuF6U_xc5uZKfvlG3VhCKYswg?loadFrom=DeliveryEmail
+
 % 2nd lecture
+\subsection{Types of electronic components}
+In general there are two types of elements in the circuit, the first one are Passive devices like a resistors (a passive two-terminal electrical component that implements electrical resistance as a circuit element), inductors (is a passive two-terminal electrical component that stores energy in a magnetic field when electric current flows through it), capacitors and diodes. And there are Active devices like transistors (a semiconductor device used to amplify or switch electronic signals and electrical power), amplifiers (an electronic device that can increase the power of a signal (a time-varying voltage or current)) and ICs. From our perspective, the Active devices are much more interesting for us (attackers) as they are using electricity in order to control electricity. One example can be an amplifier that has audio signal and power supply as inputs and it generates a greater audio signal as an output using the power supply. 
+Another interesting active element for this course is a transistor. In an integrated circuits, there are a lot of active devices such as transistors  that if we can analyze their behavior we can learn about the data that they are processing. So when we look at the final consumption of these active elements, we can figure out some kind of secrets.
+There are many kind of transistors and we will concentrate on understanding a certain type called Field-Effect Transistor.
+% TODO: add a scheme of Field-Effect Transistor
+
+\subsection{ Field-Effect Transistor }
+The field-effect transistor (FET) is an electronic device which uses an electric field to control the flow of current. FETs are 3-terminalled devices, having a source, gate, and drain terminal. FETs control the flow of current by the application of a voltage to the gate terminal, which in turn alters the conductivity between the drain and source terminals.
+In order to understand FET first we need to dive into the basics of semiconductors.
+\subsection{ Semiconductors }
+A semiconductor is a substance, usually a solid chemical element or compound, that can conduct electricity under some conditions but not others, making it a good medium for the control of electrical current. Its conductance varies depending on the current or voltage applied to a control electrode, or on the intensity of irradiation by infrared (IR), visible light, ultraviolet (UV), or X rays.
+In general, transistors are made of semiconducting materials such as silicon. There are a conductor like copper or gold and there are insulators like plastic or glass. 
+Silicon atom has three parts: neutrons (not relevant for our use), protons with the positive charge (heavy) and electrons that have the negative charge and they are small and dynamic. Silicon atom has four electrons in its outer orbital and when we have a crystal silicon those 4 electrons are set in place very nicely. It means that pure silicon is a very bad conductor as  conducting means that the electrons can move around and in this case they are very comfortable where they are.
+% TODO: add silicon atom diagram
+Metals can be good conductors of electricity as they have "free electrons" that can move easily from atom to atom, the electricity involves the flow of electrons. As all of the outer electrons in Silicon crystal are involved in perfect covalent bonds, they cannot move around. So, silicon crystal is nearly insulator and very little electricity will flow through it.
+We can change the behavior of  the silicon and turn it into a conductor by doping it. In doping, we mix a small amount of an impurity into the silicon crystal.
+There are two types of impurities:
+•	N-type – where phosphorus or arsenic is added to the silicon in small quantities. They both have  five outer electrons, so one of them is out of place when they get into the silicon lattice. While having nothing to bond to, the fifth electron is free to move around. As electrons have a negative charge, this kind of impurity called N-type.
+•	P-type - where boron or gallium is added to the silicon. They both have only three outer electrons. So, when we mixed them into the silicon lattice, there will be "holes" in the lattice where a silicon electron has nothing to bond to. The hole is looking for an electron from a neighbor atom and when that’s happens the hole is "moving". As the absence of an electron creates the effect of a positive charge, this kind of impurity called P-type.
+\subsection{ How does Field-Effect Transistor work? }
+In the Field-Effect Transistor there are (as shown in figure ..) n+ areas (N-type) and P area (P-type). The n+ area contains a lot of free electrons and the P area contains a lot of 'holes'. When no electricity is connected to the gate, the free electrons from the N+ are moving to the holes so there are no free electrons within the semiconductor itself. That means electrons can't move from the source to the drain i.e. open circuit. When electricity is connected to the gate it charge a lot of free electrons to it. The free electrons in the gate can't move to the silicon itself as there is an oxide layer between them, but is pushes the electrons in the silicon down to the body in a way there are holes between the source and the drain. That way electrons can move from the source to the drain freely and we have close circuit. 
+\subsection{ NOT Gate }
+% TODO: Add Not gate diagram
+How does CMOS work? When the voltage of input A is low A = 0, the upper transistor's channel is closed and we have a connection between Vdd(1) and Q, so Q = 1. And when the voltage of input A is high, then the lower transistor's channel is closed and we have a connection between Vss(0) and Q, so Q = 0.
+A question is raised – when does this circuit consume power? There is almost no power consume as there is no connection between Vdd and Vss at any time. Although when CMOS is switching between states, there is a minor power usage, but it's insignificant.
 
